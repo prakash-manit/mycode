@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <script src="Scripts/jquery-3.2.1.js"> </script>
+    <script src="Scripts/angular.js"> </script>
+    <script src="Scripts/system.js"> </script>
+    
+    <script>
+        function Test() {
+            SystemJS.import('./CustomScripts/Customer.js')
+                .then(function (module) {
+                    var cust = new module.Customer();
+                    cust.Add();
+                }).catch(function (err)
+                { console.error(err); });;
+        }
+           
+    </script>
+
+    <!--<script>
+        function UiToObject()
+        {
+            cust.CustomerName = $("#txtCustomerName").val();
+        }
+        function ObjectToUI() {
+            $("#txtCustomerName").val(cust.CustomerName);
+        } 
+        function ObjectChangeToUI() {
+            cust.CustomerName = "Prakash";
+            $("#txtCustomerName").val(cust.CustomerName);
+        } 
+        function Clear() {
+            $("#txtCustomerName").val("");
+        }       
+    </script>-->
+    <title>Angular Demo</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <!--<td><input type="text" id="txtCustomerName" onchange="UiToObject()" /></td>-->
+        </tr>
+        <tr>
+            <!--<td><button type="button" id="btnRetrieve" onclick="ObjectToUI()" />Retrieve</td>
+            <td><button type="button" id="btnRetrieveChanges" onclick="ObjectChangeToUI()" />RetrieveInternalChanges</td> 
+            <td><button type="button" id="btnClear" onclick="Clear()" />Clear</td>--> 
+            <td><button type="button" id="btnTest" onclick="Test()" />Test</td>
+        </tr>
+        <tr>
+            <!--<td><input type="text" [(ngModel)] ="Customer.CustomerName"  /></td>-->
+            <!--<td><button type="button" id="btnAdd" (click)="Add" />Add</td>-->
+        </tr>     
+    </table>
+</body>
+</html>

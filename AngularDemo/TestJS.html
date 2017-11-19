@@ -1,0 +1,28 @@
+﻿<html ng-app>
+<head>
+    <script>
+        var isIE = document.attachEvent;
+        var addListener = isIE
+              ? function (e, t, fn) {
+                      e.attachEvent('on' + t, fn);
+            }
+              : function (e, t, fn) {
+                      e.addEventListener(t, fn, false);
+            };
+        addListener(document, 'load', function () {
+              var greeting = document.getElementById('greeting1');
+              if (isIE) {
+                    greeting.innerText = 'Hello World!';
+              } else {
+                    greeting.textContent = 'Hello World!';
+             }
+        });
+    </script>
+
+</head>
+<body>
+    <p id="greeting1"></p>
+    <!--<input ng-model='user.name'>
+    <div ng-show='user.name'>Hi {{user.name}}</div>-->
+</body>
+</html>
